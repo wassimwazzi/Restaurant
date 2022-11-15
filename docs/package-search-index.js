@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"eu.kartoffelquadrat.restaurant"},{"l":"eu.kartoffelquadrat.restaurant.control"},{"l":"eu.kartoffelquadrat.restaurant.model"}]

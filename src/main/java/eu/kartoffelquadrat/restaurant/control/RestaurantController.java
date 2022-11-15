@@ -36,6 +36,4 @@ public class RestaurantController {
   public List<String> getAllChefs() {
     return chefManager.getAllChefNames();
   }
-
-
 }
