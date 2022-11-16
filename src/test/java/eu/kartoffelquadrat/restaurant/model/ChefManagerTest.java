@@ -1,6 +1,8 @@
 package eu.kartoffelquadrat.restaurant.model;
 
 import java.util.List;
+
+import eu.kartoffelquadrat.restaurant.model.chef.ChefManager;
 import org.junit.Test;
 
 public class ChefManagerTest {

@@ -1,5 +1,7 @@
 package eu.kartoffelquadrat.restaurant.model;
 
+import eu.kartoffelquadrat.restaurant.model.chef.ChefManagerInterface;
+
 import java.util.LinkedList;
 import java.util.List;
 

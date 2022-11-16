@@ -15,5 +15,7 @@ public class RestaurantControllerTest {
 
 
     assert controller.getAllChefs().size() == 3;
+
+    assert controller.getAllOrders().size() == 0;
   }
 }

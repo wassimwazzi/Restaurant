@@ -1,6 +1,7 @@
 package eu.kartoffelquadrat.restaurant.control;
 
-import eu.kartoffelquadrat.restaurant.model.ChefManagerInterface;
+import eu.kartoffelquadrat.restaurant.model.chef.ChefManagerInterface;
+import eu.kartoffelquadrat.restaurant.model.order.OrderManagerInterface;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,15 +17,24 @@ import org.springframework.web.bind.annotation.RestController;
 public class RestaurantController {
 
   // Local ChefManager reference. Is injected via constructor Autowiring.
-  private ChefManagerInterface chefManager;
+  private final ChefManagerInterface chefManager;
+  @Autowired
+  private OrderManagerInterface orderManager;
 
   /**
    * Constructor for Restaurant Controller Bean. Auto-detected by Springs component-scan.
    *
    * @param chefManager as the precise ChefManagerInterface implementation to use at runtime.
    */
-  public RestaurantController(@Autowired ChefManagerInterface chefManager) {
+
+  @Autowired
+  public RestaurantController(ChefManagerInterface chefManager) {
     this.chefManager = chefManager;
+  }
+
+  @Autowired
+  public void setOrderManager(OrderManagerInterface orderManager) {
+    this.orderManager = orderManager;
   }
 
   /**
@@ -35,5 +45,15 @@ public class RestaurantController {
   @GetMapping("/restaurant/chefs")
   public List<String> getAllChefs() {
     return chefManager.getAllChefNames();
+  }
+
+  /**
+   * Sample REST endpoint to retrieve list of all order names.
+   *
+   * @return list of all orders.
+   */
+  @GetMapping("restaurant/orders")
+  public List<String> getAllOrders() {
+    return orderManager.getAllOrders();
   }
 }

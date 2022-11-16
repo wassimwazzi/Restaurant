@@ -1,4 +1,4 @@
-package eu.kartoffelquadrat.restaurant.model;
+package eu.kartoffelquadrat.restaurant.model.chef;
 
 import java.util.Objects;
 
@@ -11,6 +11,7 @@ public class Chef {
 
   private String name;
   private String birthdate;
+  private String nickname;
 
   /**
    * Default constructor, needed for serialization.
@@ -19,25 +20,29 @@ public class Chef {
   }
 
 
-  public Chef(String name, String birthdate) {
+  /**
+   * Constructor for Chef.
+   *
+   * @param name      Name of the chef.
+   * @param birthdate Birthdate of the chef.
+   * @param nickname  Nickname of the chef.
+   */
+  public Chef(String name, String birthdate, String nickname) {
     this.name = name;
     this.birthdate = birthdate;
+    this.nickname = nickname;
   }
 
   public String getName() {
     return name;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
   public String getBirthdate() {
     return birthdate;
   }
 
-  public void setBirthdate(String birthdate) {
-    this.birthdate = birthdate;
+  public String getNickname() {
+    return nickname;
   }
 
   /**

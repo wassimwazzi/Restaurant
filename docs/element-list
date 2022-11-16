@@ -1,3 +1,4 @@
 eu.kartoffelquadrat.restaurant
 eu.kartoffelquadrat.restaurant.control
-eu.kartoffelquadrat.restaurant.model
+eu.kartoffelquadrat.restaurant.model.chef
+eu.kartoffelquadrat.restaurant.model.order

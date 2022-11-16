@@ -1,4 +1,4 @@
-package eu.kartoffelquadrat.restaurant.model;
+package eu.kartoffelquadrat.restaurant.model.chef;
 
 import java.util.List;
 

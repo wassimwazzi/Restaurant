@@ -1,4 +1,4 @@
-package eu.kartoffelquadrat.restaurant.model;
+package eu.kartoffelquadrat.restaurant.model.chef;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -19,12 +19,12 @@ public class ChefManager implements ChefManagerInterface {
   /**
    * Default constructor of ChefManager Bean. Will be invoked by Spring on application start.
    */
-  ChefManager() {
+  public ChefManager() {
     chefs = new LinkedList<>();
-    chefs.add(new Chef("Ada", "December 10th 1815"));
-    chefs.add(new Chef("Donald", "June 8th 1955"));
-    chefs.add(new Chef("Tim", "February 23rd 1999"));
-    chefs.add(new Chef("Alan", "June 23rd 1912"));
+    chefs.add(new Chef("Ada", "December 10th 1815", "Ada"));
+    chefs.add(new Chef("Donald", "June 8th 1955", "Duck"));
+    chefs.add(new Chef("Tim", "February 23rd 1999", "Timbo"));
+    chefs.add(new Chef("Alan", "June 23rd 1912", "Turing"));
   }
 
   /**
