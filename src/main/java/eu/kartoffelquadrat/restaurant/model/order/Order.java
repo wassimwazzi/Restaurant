@@ -19,12 +19,12 @@ public class Order implements OrderInterface {
    * @param dish dish name
    * @param address address
    */
-  public Order(String name, String dish, String address) {
+  public Order(String name, String dish, String address, int id) {
     this.name = name;
     this.dish = dish;
     this.address = address;
     this.state = OrderState.IN_THE_WORKS;
-    this.id = new Random().nextInt();
+    this.id = id;
   }
 
   @Override

@@ -6,9 +6,17 @@ import java.util.List;
  * Manages  the orders.
  */
 public interface OrderManagerInterface {
-  List<String> getAllOrders();
+  List<Order> getAllOrders();
 
   Order getOrder(int orderId);
 
-  void createOrder(String name, String dish, String address);
+  /**
+   * Returns the id of the new order.
+   *
+   * @param name order name
+   * @param dish dish name
+   * @param address address
+   * @return id
+   */
+  int createOrder(String name, String dish, String address);
 }

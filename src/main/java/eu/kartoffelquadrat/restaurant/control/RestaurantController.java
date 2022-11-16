@@ -1,10 +1,14 @@
 package eu.kartoffelquadrat.restaurant.control;
 
 import eu.kartoffelquadrat.restaurant.model.chef.ChefManagerInterface;
+import eu.kartoffelquadrat.restaurant.model.order.Order;
 import eu.kartoffelquadrat.restaurant.model.order.OrderManagerInterface;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -18,8 +22,7 @@ public class RestaurantController {
 
   // Local ChefManager reference. Is injected via constructor Autowiring.
   private final ChefManagerInterface chefManager;
-  @Autowired
-  private OrderManagerInterface orderManager;
+  private final OrderManagerInterface orderManager;
 
   /**
    * Constructor for Restaurant Controller Bean. Auto-detected by Springs component-scan.
@@ -28,12 +31,9 @@ public class RestaurantController {
    */
 
   @Autowired
-  public RestaurantController(ChefManagerInterface chefManager) {
+  public RestaurantController(ChefManagerInterface chefManager,
+                              OrderManagerInterface orderManager) {
     this.chefManager = chefManager;
-  }
-
-  @Autowired
-  public void setOrderManager(OrderManagerInterface orderManager) {
     this.orderManager = orderManager;
   }
 
@@ -52,8 +52,19 @@ public class RestaurantController {
    *
    * @return list of all orders.
    */
-  @GetMapping("restaurant/orders")
-  public List<String> getAllOrders() {
+  @GetMapping("/restaurant/orders")
+  public List<Order> getAllOrders() {
     return orderManager.getAllOrders();
+  }
+
+  @PostMapping("/restaurant/orders")
+  public int createOrder(@RequestParam("name") String name, @RequestParam("dish") String dish,
+                          @RequestParam("address") String address) {
+    return orderManager.createOrder(name, dish, address);
+  }
+
+  @GetMapping("/restaurant/orders/{id}")
+  public Order getOrder(@PathVariable String id) {
+    return orderManager.getOrder(Integer.parseInt(id));
   }
 }
